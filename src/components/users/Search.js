@@ -15,8 +15,9 @@ const Search = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    if (text === "") {
-      setAlert("Please enter something", "light");
+    const reg = /^[a-zA-Z0-9-_. ]+$/;
+    if (!reg.test(text)) {
+      setAlert("Please enter something correct", "light");
     } else {
       searchUsers(text);
       setText("");
